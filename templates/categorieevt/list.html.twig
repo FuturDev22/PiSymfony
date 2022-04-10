@@ -1,0 +1,75 @@
+ 
+ {% extends 'base.html.twig' %}
+
+
+{% block body %}
+  
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Liste des Catégories</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Evénements</li>
+          <li class="breadcrumb-item active">Liste des Catégories </li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Affichage <span class="badge rounded-pill " style="color:white;background-color:#87CEFA;">Nombre des Catégories: {{ tabcat|length }}</span></h5>
+             <a href="{{ path('addCat') }}"  class="btn btn-primary"><i class="bi bi-plus-circle"></i> Nouvelle Catégorie</a>
+
+              <!-- Table with stripped rows -->
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom Catégorie</th>
+                    <th>Actions</th>
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                {% for e in tabcat %}
+                  <tr>
+                   <th scope="row">{{ e.id}}</th>
+
+                    <th scope="row">{{ e.getNomCategorie}}</th>
+                    
+                   
+                    <td>
+               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+               
+               <a href="{{ path('updateCat',{'idCategorie':e.id}) }}" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+               <a href="{{ path('suppCat',{'idCategorie':e.id}) }}" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+              </div>
+
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+{% endblock %}
+
+
+
+  
