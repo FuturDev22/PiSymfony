@@ -1,0 +1,98 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}app.user{% endblock %}
+
+{% block content %}
+
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">User</a></li>
+                <li>Profile</li>
+            </ol>
+            <h2>Profile</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ app.user.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ app.user.nom }}</td>
+        </tr>
+        <tr>
+            <th>Telephone</th>
+            <td>{{ app.user.telephone }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ app.user.email }}</td>
+        </tr>
+        <tr>
+            <th>account type</th>
+            <td>
+                {{ app.user.usertype }}
+            </td>
+        </tr>
+        <tr>
+            <th>Solde</th>
+            <td>{{ app.user.solde }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="{{ path('app_utilisateur_edit', {'id': app.user.id}) }}">edit</a>
+
+
+
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img">
+                            <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a href="blog-single.html">  {{ app.user.nom }}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-phone"></i> <a
+                                            href="blog-single.html">{{ app.user.telephone }}</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-mailbox2"></i> <a
+                                            href="blog-single.html">
+                                        <time datetime="2020-01-01">{{ app.user.email }}</time>
+                                    </a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-coin"></i> <a
+                                            href="blog-single.html">{{ app.user.solde }}</a></li>
+                            </ul>
+                        </div>
+
+                    </article><!-- End blog entry -->
+
+
+                </div><!-- End blog entries list -->
+            </div>
+        </div><!-- End blog sidebar -->
+
+        </div>
+
+        </div>
+    </section><!-- End Blog Single Section -->
+
+
+{% endblock %}
