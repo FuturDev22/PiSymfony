@@ -1,0 +1,111 @@
+{% extends 'Front.html.twig' %}
+
+{% block content %}
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li>Blog Single</li>
+            </ol>
+            <h2>Blog Single</h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img">
+                            <img src="Uploads/Image/{{ article.Image }}" alt="" class="img-fluid">
+                        </div>
+
+
+                        <h2 class="entry-title">
+                            <a href="blog-single.html">{{ article.Titre}}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{ article.Auteur }}</a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html">{{ article.Date | date('d/m/Y') }}</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <p>
+                               {{ article.contenu }}
+                            </p>
+
+
+
+
+
+                        </div>
+
+
+
+                    </article><!-- End blog entry -->
+    <div class="blog-author d-flex align-items-center">
+
+        <div>
+            <h4>{{ article.Auteur }}</h4>
+            <div class="social-links">
+                <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
+                <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
+                <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+            </div>
+            <p>
+
+            </p>
+        </div>
+    </div>
+                    <div class="col-lg-8" style="padding-top: 50px; padding-bottom: 50px;">
+                        <div class="blog__details__related">
+                            <div class="d-flex row">
+                                <div class="d-flex flex-column col-md-8">
+                                    <div class="coment-bottom bg-white p-2 px-4">
+                                        <h4 style="color: #0c5d69;">Commentaires</h4>
+                                        {{ form_start(form)}}
+                                        <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                                            {{ form_row(form.content,{'attr': {'class': 'form-control mr-5' , 'placeholder' : 'Add Comment' , 'cols' : '50','required' : 'true', 'style' : 'resize: none;'}}) }}
+                                            <input type="submit" class="btn btn-primary ml-auto" style="background-color: #0c5d69; border: #0c5d69;" value="Commenter"/>
+                                        </div>
+                                        {{ form_end(form) }}
+
+                                        {% for comment in comments %}
+                                            <div class="commented-section mt-2 mb-2">
+                                                <div class="d-flex flex-row align-items-center commented-user">
+                                                    <h5 class="mr-auto mb-2" style="color: #0c5d69; font-weight: bold;">{{ comment.author }}</h5>
+                                                    <i class="fa fa-history mb-2" style="color: #0c5d69;"></i>
+                                                    <span class="ml-2 mb-2">{{ comment.createdAt|date('d/m/Y') }} at {{ comment.createdAt|date('H:i') }} </span>
+
+                                                </div>
+                                                <div class="comment-text-sm">
+                                                    <span>{{ comment.content }}</span>
+                                                </div>
+                                                {% if app.user and app.user.userName==comment.author %}
+                                                    <div class="d-flex flex-row align-items-center commented-user">
+                                                        <a href="{{ path('blog_uncomment' , {'id':article.id , 'idC': comment.id} )}}" class="ml-auto mb-4"><button class="btn btn-primary" style="background-color: #D43939; border: none;"><i class="fa fa-trash"></i></button></a>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div
+
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'Base.html.twig' %}
+
+{% block body %}
+    <main id="main" class="main">
+
+    <div class="pagetitle">
+
+        <nav>
+
+        </nav>
+    </div><!-- End Page Title -->
+    <main class="content">
+        <div class="pagetitle">
+
+            <h1>Gestion des blog</h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Blog</a></li>
+                <li class="breadcrumb-item active">Ajouter une categorie</li>
+            </ol>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Ajouter Catégorie</h5>
+
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(formCat) }}
+                        {{ form_errors(formCat) }}
+
+
+
+
+
+                        <form>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    {{ form_row(formCat.Nom) }}
+                                </div>
+
+
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">{% if editMode %}Enregistrer{% else %}Ajouter{% endif %}</button>
+                            {{ form_end(formCat) }}
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+
+{% endblock %}
