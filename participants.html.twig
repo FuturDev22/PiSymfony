@@ -1,0 +1,56 @@
+ {% extends 'base.html.twig' %}
+ {% block body %}
+ <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Liste des participants</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Evénements</li>
+          <li class="breadcrumb-item active">participants</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Affichage des Participants  </h5>
+             
+                
+                
+              <!-- Table with stripped rows -->
+              <table class="table datatable table-striped">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col">Titre événement</th>
+                    <th scope="col">Email participant</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                {% for p in part %}
+                  <tr>
+                    <td>{{ p.getIdEvt.getNomEvt}}</td>
+                    <td>{{ p.getIdUser.getEmail }}</td>
+
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+              {% endblock  %}

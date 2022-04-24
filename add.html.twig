@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Ajout <a href="{{ path('listEvenement') }}" class="btn btn-primary"><i class="bi bi-box-arrow-left"></i></a> </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Evénements</li>
+          <li class="breadcrumb-item active">Ajouter événement</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-9">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Nouveau événement</h5>
+                  {{ form_start(formEvt,{attr:{novalidate:'novalidate'}}) }}
+              <!-- General Form Elements -->
+              <form>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Titre</label>
+                  <div class="col-sm-10">
+                        {{ form_widget(formEvt.nomEvt , {'attr': {'class': 'form-control' , 'placeholder' : 'titre'}} ) }}
+                       {{ form_errors(formEvt.nomEvt) }}
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-2 col-form-label">Description</label>
+                  <div class="col-sm-10">
+                   {{ form_widget(formEvt.descriptionEvt , {'attr': {'class': 'form-control' , 'placeholder' : 'description'}} ) }}
+                   {{ form_errors(formEvt.descriptionEvt,{'attr':{'class':'text-danger'}}) }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Date</label>
+                  <div class="col-sm-10">
+                  
+                       {{ form_widget(formEvt.dateEvt , {'attr': {'class': 'form-control' , 'placeholder' : 'date'}} ) }}
+                   {{ form_errors(formEvt.dateEvt) }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Heure</label>
+                  <div class="col-sm-10">
+                    {{ form_widget(formEvt.heureEvt , {'attr': {'class': 'form-control' , 'placeholder' : 'heure'}} ) }}
+                   {{ form_errors(formEvt.heureEvt) }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Lieu</label>
+                  <div class="col-sm-10">
+                      {{ form_widget(formEvt.lieuEvt , {'attr': {'class': 'form-control' , 'placeholder' : 'lieu'}} ) }}
+                   {{ form_errors(formEvt.lieuEvt) }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-2 col-form-label">Responsable</label>
+                  <div class="col-sm-10">
+                 {{ form_widget(formEvt.responsable , {'attr': {'class': 'form-control' , 'placeholder' : 'email','type':'date'}} ) }}
+                   {{ form_errors(formEvt.responsable) }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputTime" class="col-sm-2 col-form-label">Places</label>
+                  <div class="col-sm-10">
+                   {{ form_widget(formEvt.places , {'attr': {'class': 'form-control' , 'placeholder' : 'places'}} ) }}
+                   {{ form_errors(formEvt.places  ) }}
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="inputTime" class="col-sm-2 col-form-label">Catégorie</label>
+                  <div class="col-sm-10">
+                   {{ form_widget(formEvt.categorie, {'attr': {'class': 'form-control' , 'placeholder' : 'Catégorie'}} ) }}
+                   {{ form_errors(formEvt.categorie) }}
+                  </div>
+                </div>
+                <div class="text-center">
+                {{ form_widget(formEvt) }}
+                  <button type="submitType" class="btn btn-primary">Ajouter</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+               
+            
+              {{ form_end(formEvt) }}
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+
+        
+    </section>
+
+  </main><!-- End #main -->
+  {% endblock %}

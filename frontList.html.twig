@@ -1,0 +1,36 @@
+{% extends 'base1.html.twig' %}
+{% block content %}
+<br>
+<!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          
+          <p>Nos événements</p>
+        </header>
+
+        <div class="row">
+          {% for e in tabevt %}
+          <div class="col-lg-4">
+            <div class="post-box">
+              <div class="post-img"><img src="{{asset('Front/assets/img/blog/blog-1.jpg')}}" class="img-fluid" alt=""></div>
+               <span class="post-date">{{e.getDateEvt|date('d-m-Y')}}</span> 
+               <span class="post-date">{{e.getHeureEvt|date('H:m:s')}}</span>
+               
+              <h3 class="post-title">{{e.getNomEvt}}</h3>
+              <h6 class="post-title">{{e.getDescriptionEvt}}</h6>
+              <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Voir plus</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+           {% endfor %}
+          
+          
+        </div>
+
+      </div>
+
+    </section><!-- End Recent Blog Posts Section -->
+    
+   {% endblock %}
