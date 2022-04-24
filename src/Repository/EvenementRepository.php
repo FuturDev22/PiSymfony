@@ -45,6 +45,69 @@ class EvenementRepository extends ServiceEntityRepository
         }
     }
 
+    public function findEntitiesByString($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM App\Entity\Evenement p
+                WHERE p.nomEvt LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
+
+    public function findByCateegorie(){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM App\Entity\Evenement p
+                WHERE p.categorie = workshop'
+            )
+           
+            ->getResult();
+    }
+
+
+    public function findByCategorie($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.categorie = :val')
+            ->setParameter('val', $value)
+            
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+        /**
+     * Returns all events per page
+     * @return void 
+     */
+    public function getPaginatedAnnonces($page, $limit){
+        $query = $this->createQueryBuilder('a');
+            
+
+        $query->orderBy('a.dateEvt')
+            ->setFirstResult(($page * $limit) - $limit)
+            ->setMaxResults($limit)
+        ;
+        return $query->getQuery()->getResult();
+    }
+
+    public function findArray(){
+        $prod = $this->getEntityManager()
+        ->createQuery('
+        SELECT e FROM App\Entity\Evenement e
+        WHERE e.idEvt=1 ')
+       ->getResult();
+
+       $productArray = $prod->toArray();
+        $json = json_encode($productArray);
+        return $json;
+  
+    }
+    
+
     // /**
     //  * @return Evenement[] Returns an array of Evenement objects
     //  */
@@ -73,4 +136,6 @@ class EvenementRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
 }

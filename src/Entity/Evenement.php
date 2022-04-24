@@ -8,8 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Evenement
  *
- * @ORM\Table(name="evenement", indexes={@ORM\Index(name="FK_23A0E66CBAAAAB3", columns={"id_photo"}), @ORM\Index(name="FK_23A0E66CBAAAAB4", columns={"id_categorie"})})
- * @ORM\Entity
+ * @ORM\Table(name="evenement", indexes={@ORM\Index(name="FK_7CE748AA76ED354", columns={"id_photo"}), @ORM\Index(name="FK_7CE748AA76ED358", columns={"id_categorie"})})
+ * @ORM\Entity(repositoryClass="App\Repository\EvenementRepository")
+ * @ORM\Table(name="evenement", indexes={@ORM\Index(columns={"nom_evt", "description_evt", "id_categorie"}, flags={"fulltext"})})
+
  */
 class Evenement
 {
@@ -117,7 +119,7 @@ class Evenement
     /**
      * @var \Categorieevt
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorieevt" ,inversedBy="categorie")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorieevt")
      * @Assert\NotBlank(message=" Catégorie doit être non vide ! ")
      * @ORM\JoinColumns({
      * @ORM\JoinColumn(name="id_categorie", referencedColumnName="id_categorie")

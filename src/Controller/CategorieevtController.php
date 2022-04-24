@@ -32,6 +32,8 @@ class CategorieevtController extends AbstractController
         $cat= $this->getDoctrine()->getRepository(Categorieevt::class)->findAll();
         return $this->render("categorieevt/list.html.twig",array("tabcat"=>$cat));
     }
+  
+     
     /**
      * @Route("/deleteCat/{idCategorie}", name="suppCat")
      */
@@ -43,6 +45,8 @@ class CategorieevtController extends AbstractController
         $em->flush();
         return $this->redirectToRoute("listCategories");
     }
+
+   
    /**
      * @Route("listCategories/addCat", name="addCat")
      */
@@ -75,4 +79,5 @@ class CategorieevtController extends AbstractController
         }
         return $this->render("categorieevt/update.html.twig",array("categorieevt"=>$cat,"formcat"=>$form->createView()));
     }
+    
 }

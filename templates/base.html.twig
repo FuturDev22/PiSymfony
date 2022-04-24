@@ -8,7 +8,6 @@
   <title>KdayesWebsite</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
   <!-- Favicons -->
   <link href="{{asset('Back/assets/img/log.png')}}" rel="icon">
   <link href="{{asset('Back/assets/img/log.png')}}" rel="apple-touch-icon">
@@ -16,8 +15,8 @@
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
   <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
   <link href="{{asset('Back/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('Back/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
   <link href="{{asset('Back/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
@@ -25,7 +24,9 @@
   <link href="{{asset('Back/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
   <link href="{{asset('Back/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('Back/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
-   
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js" integrity="sha256-XCdgoNaBjzkUaEJiauEq+85q/xi/2D4NcB3ZHwAapoM=" crossorigin="anonymous"></script>
+
 
   <!-- Template Main CSS File -->
   <link href="{{asset('Back/assets/css/style.css')}}" rel="stylesheet">
@@ -372,6 +373,21 @@
               <i class="bi bi-circle"></i><span> Catégories</span>
             </a>
           </li>
+          <li>
+            <a href="{{ path('stat') }}">
+              <i class="bi bi-circle"></i><span> Statistiques par catégorie</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('stat1') }}">
+              <i class="bi bi-circle"></i><span> Statistiques par mois d'événement</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ path('listParticipants') }}">
+              <i class="bi bi-circle"></i><span> Participants</span>
+            </a>
+          </li>
           
         </ul>
         
@@ -470,9 +486,12 @@
   <script src="{{asset('Back/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
   <script src="{{asset('Back/assets/vendor/tinymce/tinymce.min.js')}}"></script>
   <script src="{{asset('Back/assets/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+      <script src="//code.jquery.com/jquery.js"></script>
 
   <!-- Template Main JS File -->
   <script src="{{asset('Back/assets/js/main.js')}}"></script>
+ {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
 
 </body>
 

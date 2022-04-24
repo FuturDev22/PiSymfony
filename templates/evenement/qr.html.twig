@@ -1,0 +1,39 @@
+
+{% block stylesheets %}
+<style>
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 55%;
+  
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+<h2 style="color : #000080;text-align: center;" >  Participation au événement {{d.getNomEvt}}, on vous souhaite la bienvenue! </h2>
+<h3 style="color : #00008B;text-align: center;" >  Vous montrez ce QRCode le jour de l'événement </h3>
+<h3 style="color : #4169E1;text-align: center;" > Mme/Mr <strong>{{user.getEmail}}</strong>  </h3>
+<div class="card" style="text-align: center;position: relative;
+top: 5px; left: 180px;">
+ {% if qrCode %}
+  <img src="{{ qrCode }}" alt="qr-code" style="width:50%; justify-content: center;">
+  {% endif %}
+  <div class="container">
+    <h4><b>L'événement <strong>{{d.getNomEvt}}</strong> du {{d.getDateEvt|date('d-m-Y')}} à {{d.getHeureEvt|date('H:m:s')}}  </b></h4> 
+   
+  </div>
+</div>
+
+
+{% endblock %}

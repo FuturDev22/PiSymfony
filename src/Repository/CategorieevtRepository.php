@@ -73,4 +73,22 @@ class CategorieevtRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    
+    //  * @return CategorieEvt[] Returns an array of CategorieEvt objects
+    //  */
+
+    public function findByCatégorie($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.categorie = :val')
+            ->setParameter('val', $value)
+            ->orderBy('e.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 }

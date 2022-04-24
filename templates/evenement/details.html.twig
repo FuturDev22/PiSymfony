@@ -1,9 +1,8 @@
   {% extends 'base.html.twig' %}
 {% block body %}
- {% for e in tabevt %}
 <main id="main" class="main">
     <div class="pagetitle">
-      <h1>Details événement <strong>{{ e.getNomEvt}}</srong> <a href="{{ path('listEvenement') }}" class="btn btn-primary"><i class="bi bi-box-arrow-left"></i></a></h1>
+      <h1>Details événement <strong>{{ l.getNomEvt}}</srong> <a href="{{ path('listEvenement') }}" class="btn btn-primary"><i class="bi bi-box-arrow-left"></i></a></h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -20,17 +19,16 @@
             <img src="{{asset('Back/assets/img/evt.jpg')}}" class="card-img-top" style="height : 350px; " alt="...">
             <div class="card-body">
             
-              <h5 class="card-title">{{ e.getNomEvt}}</h5>
-              <p class="card-text"><strong style="color:#4169E1;">Description:</strong> <strong> {{e.getDescriptionEvt}}</strong></p>
-                <p class="card-text"><strong style="color:#4169E1;">Catégorie:</strong> <strong> {{e.getCategorie.getNomCategorie}}</strong></p>
-                <p class="card-text"><strong style="color:#4169E1;">Lieu de l'événement:</strong>  <strong>{{e.getLieuEvt}}</strong></p>
-                 <p class="card-text"><strong style="color:#4169E1;">Date:</strong>  <strong>{{ e.getDateEvt|date('d-m-Y')}}</strong></p>
-                  <p class="card-text"><strong style="color:#4169E1;">Heure:</strong>  <strong>{{e.getHeureEvt|date('H:m:s')}}</strong></p>
-                   <p class="card-text"><strong style="color:#4169E1;">Email du responsable événement:</strong> <strong> {{e.getResponsable}}</strong></p>
-                    <p class="card-text"><strong style="color:#4169E1;">Nombre de places:</strong>  <strong>{{e.getPlaces}}</strong></p>
+              <h5 class="card-title">{{ l.getNomEvt}}</h5>
+              <p class="card-text"><strong style="color:#4169E1;">Description:</strong> <strong> {{l.getDescriptionEvt}}</strong></p>
+                <p class="card-text"><strong style="color:#4169E1;">Catégorie:</strong> <strong> {{l.getCategorie.getNomCategorie}}</strong></p>
+                <p class="card-text"><strong style="color:#4169E1;">Lieu de l'événement:</strong>  <strong>{{l.getLieuEvt}}</strong></p>
+                 <p class="card-text"><strong style="color:#4169E1;">Date:</strong>  <strong>{{ l.getDateEvt|date('d-m-Y')}}</strong></p>
+                  <p class="card-text"><strong style="color:#4169E1;">Heure:</strong>  <strong>{{l.getHeureEvt|date('H:m:s')}}</strong></p>
+                   <p class="card-text"><strong style="color:#4169E1;">Email du responsable événement:</strong> <strong> {{l.getResponsable}}</strong></p>
+                    <p class="card-text"><strong style="color:#4169E1;">Nombre de places:</strong>  <strong>{{l.getPlaces}}</strong></p>
 
             </div>
           </div><!-- End Card with an image on top -->
            </main>
-           {% endfor %}
      {% endblock %}

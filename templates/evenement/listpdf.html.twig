@@ -1,0 +1,70 @@
+ 
+
+
+
+{% block body %}
+<h1 align="center" style=" color: #2046CC;">Liste des événements</h1><hr>
+  
+<main id="main" class="main">
+
+   
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <!-- Table with stripped rows -->
+              <table class="table datatable" style=" width : 100%;border: 1px solid;">
+                <thead>
+                  <tr>
+                    
+                    <th scope="col" style=" color: #6B6AA1  ;border: 1px solid;">Titre</th>
+                    <th scope="col" style=" color: #6B6AA1  ;border: 1px solid;">Date</th>
+                    <th scope="col" style=" color: #6B6AA1  ;border: 1px solid;">Heure</th>
+                    <th scope="col" style=" color: #6B6AA1  ;border: 1px solid;">Lieu</th>
+                    <th scope="col" style=" color: #6B6AA1  ;border: 1px solid;">Responsable</th>
+                    <th scope="col" style=" color: #6B6AA1  ;border: 1px solid;">Places</th>
+                    <th scope="col" style=" color: #6B6AA1  ;border: 1px solid;">Catégorie</th>
+                   
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                {% for e in tabevt %}
+                  <tr>
+             
+                    <td>{{ e.getNomEvt}}</td>
+                    <td>{{ e.getDateEvt|date('d-m-Y')}}</td>
+                    <td>{{ e.getHeureEvt|date('H:m:s') }}</td>
+                    <td>{{ e.getLieuEvt }}</td>
+                    <td>{{ e.getResponsable }}</td>
+                    <td>{{  e.getPlaces }}</td>
+                    <td>{{  e.getCategorie.getNomCategorie}}</td>
+               
+                    <td>
+               
+
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+{% endblock %}
+
+
+
+  

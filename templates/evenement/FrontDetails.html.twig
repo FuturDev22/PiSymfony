@@ -22,6 +22,7 @@
 
           <div class="col-lg-8 entries">
             {% for e in tabevt %}
+              
             <article class="entry">
 
               <div class="entry-img">
@@ -47,21 +48,31 @@
                 
                 </ul>
               </div>
+              
               <div class="entry-content">
                 <p>{{e.getDescriptionEvt}}
                 </p>
                 <div class="read-more">
-                  <a href="blog-single.html">Participer</a>
+                           
+                {% if e.getPlaces == 0 %}
+                <button href="{{ path('participation',{'idEvt':e.id}) }}" disabled="disabled" >Participer</button> <a href="{{ path('aime',{'idEvt':e.id}) }}"><i class="bi bi-heart-fill"></i></a>
+                {% else %}
+                  <a href="{{ path('participation',{'idEvt':e.id}) }}">Participer</a> <a href="{{ path('aime',{'idEvt':e.id}) }}"><i class="bi bi-heart-fill"></i></a>
+               {% endif %}
                 </div>
               </div>
 
             </article><!-- End blog entry -->
+                               
             {% endfor %}
+            
+
+
+
             <div class="blog-pagination">
+            
               <ul class="justify-content-center">
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
+                {{ knp_pagination_render(tabevt) }}
               </ul>
             </div>
 
@@ -71,21 +82,73 @@
 
             <div class="sidebar">
 
-              <h3 class="sidebar-title">Search</h3>
-              <div class="sidebar-item search-form">
-                <form action="">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              </div><!-- End sidebar search formn-->
-
+              <h3 class="sidebar-title">Search <i class="bi bi-search"></i></h3>
+              <div class="sidebar-search">
+                <div class="input-group custom-search-form">
+                 <input type="text" id="search" class="form-control" placeholder="rechercher événements...">
+                </div>
+              </div>
+              <ul class="nav" id="side-menu">
+                   <li>
+                      <ul class="nav nav-second-level" id="entitiesNav">
+                     </ul>
+                    </li>
+              </ul>
+                    <!-- jQuery is necessary -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <script type="text/javascript">
+                    jQuery(document).ready(function() {
+                        var searchRequest = null;
+                        $("#search").keyup(function() {
+                            var minlength = 2;
+                            var that = this;
+                            var value = $(this).val();
+                            var entitySelector = $("#entitiesNav").html('');
+                            if (value.length >= minlength ) {
+                                if (searchRequest != null)
+                                    searchRequest.abort();
+                                searchRequest = $.ajax({
+                                    type: "GET",
+                                    url: "{{ path('ajax_search') }}",
+                                    data: {
+                                        'q' : value
+                                    },
+                                    dataType: "text",
+                                    success: function(msg){
+                                        //we need to check if the value is the same
+                                        if (value==$(that).val()) {
+                                            var result = JSON.parse(msg);
+                                            $.each(result, function(key, arr) {
+                                                $.each(arr, function(id, value) {
+                                                    if (key == 'evts') {
+                                                        if (id != 'error') {
+                                                        entitySelector.append('<li><a href="/details/'+id+'">'+value+'</a></li>');
+                                                            
+                                                        } else {
+                                                            entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                                        }
+                                                    }
+                                                });
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    });
+                </script> 
+                <br>
               <h3 class="sidebar-title">Voir par catégorie</h3>
               <div class="sidebar-item categories">
-                <ul>
-                {% for e in tabevt %}
-                  <li><a href="#">{{e.getCategorie.getNomCategorie}} </a></li>
+               
+               <ul>
+                {% for c in tabc %}
+                  <li><a href="{{ path('EventC',{'categorie':c.getId}) }}">{{c.getNomCategorie}} </a></li>
                  {% endfor %} 
+
                 </ul>
+
+
               </div><!-- End sidebar categories-->
               <h3 class="sidebar-title">Derniers événements</h3>
             {% for e in tabevt %}
@@ -102,8 +165,8 @@
 
               <h3 class="sidebar-title">Tags</h3>
               <div class="sidebar-item tags">
-                <ul>{% for e in tabevt %}
-                  <li><a href="#">{{e.getCategorie.getNomCategorie}} </a></li>
+                <ul>{% for  c in tabc %}
+                  <li><a href="#">{{c.getNomCategorie}} </a></li>
                   {% endfor %} 
                 </ul>
               </div><!-- End sidebar tags-->
@@ -118,5 +181,8 @@
     </section><!-- End Blog Section -->
 
   </main><!-- End #main -->
- 
+  
+{% endblock %}
+{% block javascripts %}
+     <script src="{{asset('Front/assets/js/filters.js')}}"></script>
 {% endblock %}
