@@ -1,0 +1,83 @@
+{% extends 'frontbase.html.twig' %}
+
+
+{% block body %}
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Liste des projets à investir</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Projets</li>
+                    <li class="breadcrumb-item active">Affichage</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Affichage des projets d'investissements <span class="badge rounded-pill " style="color:white;background-color:#87CEFA;">Nombre des projets: {{ tabevt|length }}</span> </h5>
+                            <a href="{{ path('app_projet_new') }}"  class="btn btn-primary"><i class="bi bi-plus-circle"></i> Nouveau projet</a>
+                            <!-- Table with stripped rows -->
+                            <table class="table datatable">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nom de projet d'investissement</th>
+                                    <th scope="col">Categorie de projet</th>
+                                    <th scope="col">Date debut</th>
+                                    <th scope="col">Date fin</th>
+                                    <th scope="col">Montant demandee</th>
+                                    <th scope="col">Montant collectee</th>
+
+
+                                    <th>Actions</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for p in tabprojets %}
+                                    <tr>
+                                        <th scope="row">{{ p.id}}</th>
+                                        <td>{{ p.getNomProjet}}</td>
+                                        <td>{{ p.getCategorieProj }}</td>
+                                        <td>{{ p.getDateDebut|date('d-m-Y')}}</td>
+                                        <td>{{ p.getHeureEvt|date('H:m:s') }}</td>
+                                        <td>{{ p.getDateFin }}</td>
+                                        <td>{{ p.getMontantDemandee }}</td>
+                                        <td>{{  p.getMontantCollecte }}</td>
+                                        <td>{{  p.getEtatProjet }}</td>
+
+
+
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                                <a href="{{ path('app_projet_new',{'id':p.id}) }}" class="btn btn-warning"><i class="bi bi-card-heading"></i></a>
+                                                <a href="{{ path('app_projet_show',{'id':p.id}) }}" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                                <a href="{{ path('app_projet_delete',{'id':p.id}) }}" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <!-- End Table with stripped rows -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+
+{% endblock %}

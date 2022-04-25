@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorieprojet index{% endblock %}
+
+{% block body %}
+    <h1>Categorie projet </h1>
+    <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top: 150px;">
+
+        <div class="col-lg-7">
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ path('app_categorieprojet_new') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+                    <h5 class="card-title">Liste des catégories de projets </h5>
+
+                    <!-- Table with stripped rows -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_CategorieProjet</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorieprojet in categorieprojets %}
+            <tr>
+                <td>{{ categorieprojet.id }}</td>
+                <td>{{ categorieprojet.nomCategorieProjet }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('app_categorieprojet_delete', {'id': categorieprojet.id}) }}">delete</a>
+                    <a class="btn btn-success" href="{{ path('app_categorieprojet_edit', {'id': categorieprojet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorieprojet_new') }}">Create new</a>
+
+                    <!-- End small tables -->
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+{% endblock %}

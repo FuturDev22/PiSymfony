@@ -1,0 +1,41 @@
+{% extends 'frontbase.html.twig' %}
+{% block body %}
+    {% for p in tabprojets %}
+        <main id="main" class="main">
+            <div class="pagetitle">
+                <h1>Details projets</h1>{{ p.getNomProjet}}<a href="{{ path('app_home1') }}" class="btn btn-primary"><i class="bi bi-box-arrow-left"></i></a>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html.twig">Home</a></li>
+                        <li class="breadcrumb-item">Projet</li>
+                        <li class="breadcrumb-item active">Détails Projets</li>
+                    </ol>
+                </nav>
+            </div><!-- End Page Title -->
+
+            <div class="col-lg-12" style="justify-content: center ;">
+
+                <!-- Card with an image on top -->
+                <div class="card" style="justify-content: center ; margin: 30px 3px 3px 70px;width: 700px;">
+
+                    <img src="{{asset('front/assets/img/Imobilier.jpg')}}" class="card-img-top" style="height : 350px; " alt="...">
+
+                    <div class="card-body">
+                        <br>
+                        <h5 class="card-title">{{ p.getNomProjet}}</h5>
+                        <p class="card-text"><strong style="color:#4169E1;">Description:</strong> <strong> {{p.getContent}}</strong></p>
+                        <p class="card-text"><strong style="color:#4169E1;">Catégorie:</strong> <strong> {{p.getCategorieProj}}</strong></p>
+                        <p class="card-text"><strong style="color:#4169E1;">Etat de projet</strong>  <strong>{{p.getEtatProjet}}</strong></p>
+                        <p class="card-text"><strong style="color:#4169E1;">Date debut:</strong> <strong>{{ p.getDateDebut|date('d-m-Y')}}</strong></p>
+                        <p class="card-text"><strong style="color:#4169E1;">Date Fin:</strong>  <strong>{{ p.getDateFin|date('d-m-Y')}}</strong></p>
+                        <p class="card-text"><strong style="color:#4169E1;">Montant Demandee</strong> <strong> {{p.getMontantDemandee}}</strong></p>
+                        <p class="card-text"><strong style="color:#4169E1;">Montant Collecte:</strong>  <strong>{{p.getMontantCollecte}}</strong></p>
+
+                        <button type="button" class="btn btn-primary">Investir</button>
+                    </div>
+                </div><!-- End Card with an image on top -->
+            </div>
+        </main>
+
+    {% endfor %}
+{% endblock %}

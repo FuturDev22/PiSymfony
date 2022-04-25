@@ -1,0 +1,115 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block body %}
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <h2>Search A post !!</h2>
+            <div class="sidebar-search">
+                <div class="input-group custom-search-form">
+                <input type="text" id="search" class="form-control" placeholder="Search here">
+                </div>
+            </div>
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="#">Search Results<span class="fa arrow"></span></a>
+                </li>
+            </ul>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.ja"></script>
+    <script type="text/javascript" >
+JQuery (document).ready (function () {
+    var searchRequest = null;
+    $("#search").keyup(function () {
+        var minlength = 1;
+        var that = this;
+        var value = $(this).val();
+        var entityselector = $("entitiesNav").html('');
+        if (value.length >= minlength) {
+            if (searchRequest != null) {
+                searchRequest.abort();
+                searchRequest = $.ajax({
+                    type: "GET",
+                    url: "{{ path ('Ajax_search') }}",
+                    data: {
+                        'q': value
+                    },
+                    dataType: "text",
+                    success: function (msg) {
+                        if (value === $(that).val()) {
+                            var result = JSON.parse(msg);
+                            $.each(result, function (key, arr) {
+                                $.each(arr, function (id, value) {
+                                    if (key === 'projets') {
+                                        if (id !== 'error') {
+                                            console.log(value [1]);
+                                            entityselector.append('<li><b>' + value[1] + '</b><a href="/showprojet/' + id + '">'+'</a></li>');
+
+                                        } else {
+                                            entityselector.append('<li class="errorList">'+value+'</li>');
+                                        }
+                                    }
+                                })
+                            })
+                        }
+                    }
+                })
+            }
+        }
+    })
+})
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-12" id="collection-heading">
+                   <br> <br><span><h3 style ="color:blue;"><strong>Collection de projets d'investissements</strong></h3></span>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for projets in projets %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{asset('frontend/assets/img/thumbnail.png')}}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">{{projets.getNomProjet}} <br>{{projets.getCategorieProj}} <br>{{ projets.getMontantDemandee }} </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{{ path('update_projet', {'id': projets.id}) }}"></a><button type="button" class="btn btn-sm btn-outline-secondary">Update</button></a>
+                                    <small class="text-muted">{{ projets.getDateDebut | date() }}</small>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Details de projet</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Investir</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

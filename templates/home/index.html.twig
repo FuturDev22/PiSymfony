@@ -1,0 +1,662 @@
+{% extends 'frontbase.html.twig' %}
+{% block body %}
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center">
+                    <h1 data-aos="fade-up">Kdayes est une plateforme du crowdfunding en Tunisie.</h1>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Connecter.Investir.Collecter.</h2>
+                    <div data-aos="fade-up" data-aos-delay="600">
+                        <div class="text-center text-lg-start">
+                            <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                <span>Get Started</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                    <img src="{{asset('front/assets/img/l.png')}}" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section><!-- End Hero -->
+
+
+    <main id="main">
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+
+            <div class="container" data-aos="fade-up">
+                <div class="row gx-0">
+
+                    <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="content">
+                            <h3>Qui sommes-nous ?</h3>
+                            <h2>Kdayes vous offre la plus grande base de données des mécanismes de financement et d’appui  en Tunisie.</h2>
+                            <p>
+                                Elle permet non seulement à tout porteur de projet  de trouver le financement adéquat, mais aussi de trouver des partenaires crédibles et d’offrir ou de chercher des opportunités d’investissement.<br>
+
+                                La plateforme permet aussi à toute personne inscrite de se connecter gratuitement avec des experts de l'écosystème entreprenariat et de bénéficier de leurs conseils.
+                            </p>
+                            <div class="text-center text-lg-start">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                        <img src="{{asset('front/assets/img/about.png')}}" class="img-fluid" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+        </section><!-- End About Section -->
+
+        <!-- ======= About Portfolio projets d'investissements ======= -->
+        <section id="portfolio" class="portfolio">
+
+            <div class="container aos-init aos-animate" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Nos projets d'investissements</h2>
+                    <p>Financez les entreprises de demain</p>
+                </header>
+
+                <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".filter-app">App</li>
+                            <li data-filter=".filter-card">Card</li>
+                            <li data-filter=".filter-web">Web</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row gy-4 portfolio-container aos-init aos-animate" data-aos="fade-up" data-aos-delay="200" style="position: relative; height: 1007.96px;">
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 0px; top: 0px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/1648799289641-cabris-imagecoverlarge.jpg')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 1</h4>
+                                <p>App</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/1648799289641-cabris-imagecoverlarge.jpg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 439.987px; top: 0px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/Imobilier.jpg')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/Imobilier.jpg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 879.974px; top: 0px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/9ofaatromdhan.jpeg')}}" class="img-fluid" alt="">
+
+
+                            <div class="portfolio-info">
+                                <h4>App 2</h4>
+                                <p>App</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/9ofaatromdhan.jpeg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" style="position: absolute; left: 0px; top: 335.987px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/1645108962003-eloquence-imagecoverlarge.jpg')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Card 2</h4>
+                                <p>Card</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/1645108962003-eloquence-imagecoverlarge.jpg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Card 2"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 439.987px; top: 335.987px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/agriculture.jpg')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Web 2</h4>
+                                <p>Web</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/agriculture.jpg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Web 2"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 879.974px; top: 335.987px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/orpholan.png')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 3</h4>
+                                <p>App</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/orpholan.png')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title= "More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" style="position: absolute; left: 0px; top: 671.974px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/agroalimentation.jpg')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Card 1</h4>
+                                <p>Card</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/agroalimentation.jpg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Card 1"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-card" style="position: absolute; left: 439.987px; top: 671.974px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/sante.jpeg')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Card 3</h4>
+                                <p>Card</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/sante.jpeg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Card 3"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}"  title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 879.974px; top: 671.974px;">
+                        <div class="portfolio-wrap">
+                            <img src="{{asset('front/assets/img/portfolio/robots.jpg')}}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Web 3</h4>
+                                <p>Web</p>
+                                <div class="portfolio-links">
+                                    <a href="{{asset('front/assets/img/portfolio/robots.jpg')}}" data-gallery="portfolioGallery" class="portfokio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('/let/ProjetDetails')}}" title="More Details"><i class="bi bi-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-8">
+                        <div class="portfolio-details-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events">
+                            <div class="swiper-wrapper align-items-center" id="swiper-wrapper-de3f7eafdc104e46c" aria-live="off" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+
+                                <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 3" style="width: 856px;">
+                                    <img src="{{asset('front/assets/img/portfolio/1648799289641-cabris-imagecoverlarge.jpg')}}" alt="">
+                                </div>
+
+                                <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 3" style="width: 856px;">
+                                    <img src="{{asset('front/assets/img/portfolio/portfolio-2.jpg')}}" alt="">
+                                </div>
+
+                                <div class="swiper-slide" role="group" aria-label="3 / 3" style="width: 856px;">
+                                    <img src="{{asset('front/assets/img/portfolio/portfolio-3.jpg')}}" alt="">
+                                </div>
+
+                            </div>
+                            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span></div>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="portfolio-info">
+                            <h3>Project information</h3>
+                            <ul>
+                                <li><strong>Category</strong>: Web design</li>
+                                <li><strong>Client</strong>: ASU Company</li>
+                                <li><strong>Project date</strong>: 01 March, 2020</li>
+                                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-description">
+                            <h2>This is an example of portfolio detail</h2>
+                            <p>
+                                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ======= Team Section ======= -->
+        <section id="team" class="team">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Equipe</h2>
+                    <p> Notre équipe de travail</p>
+                </header>
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="{{asset('front/assets/img/team/team-1.jpg')}}" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Youssef Haddiji</h4>
+                                <span>EXPERT BANCAIRE ET FINANCIER</span>
+                                <p>Youssef Haddiji est un expert bancaire et financier de plus de 5 ans d’expérience. Actuellement, il est le Directeur du programme Kdayes. M. Haddiji est également expert en financement de PMEs et formateur international certifié en Entrepreunariat et en Financement des franchises.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="{{asset('front/assets/img/team/ouma.jpg')}}" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Oumayma Souissi</h4>
+                                <span>EXPERTE DÉVELOPPEMENT RÉGIONAL</span>
+                                <p>- Experte Comptable- Experte Développement Régional- Experte Chargée Développement Secteur Privé- Coach en Entrepreneuriat</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="{{asset('front/assets/img/team/team-3.jpg')}}" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Nassim Landolsi</h4>
+                                <span>EXPERT EN TRANSFORMATION DIGITALE</span>
+                                <p>Diplômé en « Digital Communication » et occupe poste d'un expert en transformation digitale avec Kdayes. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+                        <div class="member">
+                            <div class="member-img">
+                                <img src="{{asset('assets/img/team/team-4.jpg')}}" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Takwa Aouichaoui</h4>
+                                <span>EXPERT EN GESTION DE PROJETS</span>
+                                <p>Actuellement Consultante, de formation ingénieur agronome, elle a géré quelques dizaines de projets depuis, pour devenir un référent fonctionnel en agilité. La digitalisation aidant, elle a pu s’affirmer en tant que Scrum Master agile.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- End Team Section -->
+
+
+        <!-- ======= Recent Blog Posts Section ======= -->
+        <section id="recent-blog-posts" class="recent-blog-posts">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Blog</h2>
+                    <p>Nos Blog</p>
+                </header>
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="post-box">
+                            <div class="post-img"><img src="{{asset('front/assets/img/blog/blog-1.jpg')}}" class="img-fluid" alt=""></div>
+                            <span class="post-date">Tue, September 15</span>
+                            <h3 class="post-title">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit</h3>
+                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="post-box">
+                            <div class="post-img"><img src="{{asset('front/assets/img/blog/blog-2.jpg')}}" class="img-fluid" alt=""></div>
+                            <span class="post-date">Fri, August 28</span>
+                            <h3 class="post-title">Et repellendus molestiae qui est sed omnis voluptates magnam</h3>
+                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="post-box">
+                            <div class="post-img"><img src="{{asset('front/assets/img/blog/blog-3.jpg')}}" class="img-fluid" alt=""></div>
+                            <span class="post-date">Mon, July 11</span>
+                            <h3 class="post-title">Quia assumenda est et veritatis aut quae</h3>
+                            <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- End Recent Blog Posts Section -->
+
+
+
+        <!-- ======= Testimonials Section ======= -->
+        <section id="testimonials" class="testimonials">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Témoignages</h2>
+                    <p>Vos Avis et Feedback</p>
+                </header>
+
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="{{asset('front/assets/img/testimonials/testimonials-1.jpg')}}" class="testimonial-img" alt="">
+                                    <h3>Saul Goodman</h3>
+                                    <h4>Ceo &amp; Founder</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="{{asset('front/assets/img/testimonials/testimonials-2.jpg')}}" class="testimonial-img" alt="">
+                                    <h3>Sara Wilsson</h3>
+                                    <h4>Designer</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="{{asset('front/assets/img/testimonials/testimonials-3.jpg')}}" class="testimonial-img" alt="">
+                                    <h3>Jena Karlis</h3>
+                                    <h4>Store Owner</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="{{asset('front/assets/img/testimonials/testimonials-4.jpg')}}" class="testimonial-img" alt="">
+                                    <h3>Matt Brandon</h3>
+                                    <h4>Freelancer</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>
+                                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                                </p>
+                                <div class="profile mt-auto">
+                                    <img src="{{asset('front/assets/img/testimonials/testimonials-5.jpg')}}" class="testimonial-img" alt="">
+                                    <h3>John Larson</h3>
+                                    <h4>Entrepreneur</h4>
+                                </div>
+                            </div>
+                        </div><!-- End testimonial item -->
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+
+        </section><!-- End Testimonials Section -->
+
+        <!-- ======= Counts Section ======= -->
+        <section id="counts" class="counts">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-emoji-smile"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Projects</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-headset" style="color: #15be56;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Hours Of Support</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-people" style="color: #bb0852;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Hard Workers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Counts Section -->
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>Contact</h2>
+                    <p>Contact </p>
+                </header>
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-6">
+
+                        <div class="row gy-4">
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-geo-alt"></i>
+                                    <h3>Adresse</h3>
+                                    <p>Pôle Technologique El Ghazela,<br>Ariana,Tunisie.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-telephone"></i>
+                                    <h3>Téléphone</h3>
+                                    <p>+216 71 256 216<br><br></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-envelope"></i>
+                                    <h3>Email </h3>
+                                    <p>Kdayes2022@gmail.com<br><br></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bi bi-clock"></i>
+                                    <h3>Nos horaires</h3>
+                                    <p>Lundi - Vendredi<br>9:00 - 17:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form action="forms/contact.php" method="post" class="php-email-form">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="nom" class="form-control" placeholder="Nom" required>
+                                </div>
+
+                                <div class="col-md-6 ">
+                                    <input type="email" class="form-control" name="email" placeholder=" Email" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="sujet" placeholder="Sujet" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Votre message a été envoyé. Merci!</div>
+
+                                    <button type="submit">Envoyer Message</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section><!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+{% endblock %}
