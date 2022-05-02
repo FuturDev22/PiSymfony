@@ -1,0 +1,10 @@
+export interface Article {
+    id: string
+    Image: string
+    Title: string
+    Introduction: string
+    LastMod: string
+    IdTheme: string
+    categorie: string
+}
+ 
