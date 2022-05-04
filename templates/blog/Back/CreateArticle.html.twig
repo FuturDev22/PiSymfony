@@ -14,7 +14,7 @@
         </nav>
     </div>
             <div class="card-body card-block">
-                {{ form_start(formArticle) }}
+                {{ form_start(formArticle,{attr:{novalidate:'novalidate'}}) }}
                 {{ form_errors(formArticle) }}
                 <form>
                     <div class="row">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="row">
                         <div class="mb-3 col-md-11">
-                            {{ form_row(formArticle.Contenu) }}
+                            {{ form_row(formArticle.Contenu) | raw  }}
                         </div>
                     </div>
                     <div class="row">

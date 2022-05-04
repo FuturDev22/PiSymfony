@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
 use App\Entity\Article;
 use App\Entity\PostLike;
+use App\Form\SearchForm;
+use Symfony\Component\HttpFoundation\File\File;
 
 use App\Entity\Categorie;
 use App\Entity\Comment;
@@ -31,17 +34,18 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog", name="app_blog")
      */
-    public function index(ArticleRepository $repo,CategorieRepository $repo1, Request $request, PaginatorInterface $paginator): Response
+    public function index(ArticleRepository $repo,CategorieRepository $repo1, Request $request)
     {
-        $articles = $paginator->paginate(
-            $repo->findAll(), // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            3 // Nombre de résultats par page
-        );
+        $data = new SearchData();
+        $data->page = $request->get('page', 1);
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+        $articles = $repo->findSearch($data);
         $Cat = $repo1->findAll();
 
         return $this->render('blog/Front/Blog.html.twig', [
-            'controller_name' => 'BlogController','articles'=>$articles,'categories'=>$Cat
+            'controller_name' => 'BlogController','articles'=>$articles,'categories'=>$Cat,
+            'form' => $form->createView()
         ]);
     }
 
@@ -58,7 +62,7 @@ class BlogController extends AbstractController
         $form->handleRequest($request);
         //$hasAccess = $this->isGranted('ROLE_USER');
         $article = $repo->find($id);
-       // $darticles=$repo->findBy(array(),array('Date'=>'DESC'),3,0);
+        $darticles=$repo->findBy(array(),array('date'=>'DESC'),3,0);
         $comments= $repo2->findBy(['article'=>$id] , array('createdAt'=>'DESC'));
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -80,7 +84,7 @@ class BlogController extends AbstractController
 
         //}
 
-        return $this->render('blog/Front/show.html.twig',['article'=>$article,'comments'=>$comments, 'form'=> $form->createView()]);
+        return $this->render('blog/Front/show.html.twig',['article'=>$article,'comments'=>$comments, 'darticles'=>$darticles,'form'=> $form->createView()]);
     }
 
 
@@ -90,13 +94,13 @@ class BlogController extends AbstractController
     public function like($id)
     {
         $liked=false;
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $user=$this->getUser();
+        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user="youssef";
         $manager=$this->getDoctrine()->getManager();
         $article=$manager->getRepository(Article::class)->find($id);
         $likes=$manager->getRepository(PostLike::class)->findAll();
         foreach ($likes as $l){
-            if (($l->getUser()->getId()==$user->getId()) && ($l->getArticle()->getId()==$id)){
+            if (($l==$user) && ($l->getArticle()->getId()==$id)){
                 $manager->remove($l);
                 $manager->flush();
                 $liked=true;
@@ -205,7 +209,7 @@ class BlogController extends AbstractController
         $form=$this->createForm(ArticleType::class,$article);
         $form->handleRequest($request) ;
 
-        if ($form->isSubmitted()&& $form->isValid())
+        if ($form->isSubmitted() && $form->isValid())
         {
 
             $file = $form['Image']->getData();
@@ -249,6 +253,20 @@ class BlogController extends AbstractController
 
         return $this->render('blog/Back/CreateArticle.html.twig',['formArticle'=>$form->createView(),'editMode'=>$article->getId()!==null]);
     }
+    /**
+     * @Route("/change_locale/{locale}", name="change_locale")
+     */
+    public function changeLocale($locale, Request $request)
+    {
+        // On stocke la langue dans la session
+        $request->getSession()->set('_locale', $locale);
+
+
+        // On revient sur la page précédente
+        return $this->redirect($request->headers->get('referer'));
+    }
+
+
 
 
 }

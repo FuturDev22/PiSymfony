@@ -3,8 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\Article;
+use App\Data\SearchData;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
+
 
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,21 +18,47 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ArticleRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Article::class);
+        $this->paginator = $paginator;
     }
 
-    public function findEntitiesByString($str){
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT e
-                FROM AppBundle:Article e
-                WHERE e.Titre LIKE :str'
-            )
-            ->setParameter('str', '%'.$str.'%')
-            ->getResult();
+   
+
+    /**
+     * Récupère les produits en lien avec une recherche
+     * @return PaginationInterface
+     */
+    public function findSearch(SearchData $search): PaginationInterface
+    {
+
+        $query = $this
+            ->createQueryBuilder('p')
+            ->select('c', 'p')
+            ->join('p.cat', 'c');
+
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('p.titre LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+
+        if (!empty($search->categories)) {
+            $query = $query
+                ->andWhere('c.id IN (:categories)')
+                ->setParameter('categories', $search->categories);
+        }
+
+        return $this->paginator->paginate(
+            $query,
+            $search->page,
+            5
+        );
     }
+
+
 
     // /**
     //  * @return Article[] Returns an array of Article objects

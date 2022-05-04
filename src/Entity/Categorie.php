@@ -5,6 +5,7 @@ use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Categorie
@@ -25,6 +26,12 @@ class Categorie
 
     /**
      * @var string
+     * @Assert\NotBlank(message=" Nom doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un titre au mini de 5 caracteres"
+     *
+     *     )
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */

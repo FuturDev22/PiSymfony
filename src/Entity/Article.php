@@ -27,7 +27,12 @@ class Article
 
     /**
      * @var string
+     * @Assert\NotBlank(message=" Titre doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un titre au mini de 5 caracteres"
      *
+     *     )
      * @ORM\Column(name="titre", type="string", length=255, nullable=false)
      */
     private $titre;
@@ -42,6 +47,12 @@ class Article
 
     /**
      * @var string
+     * @Assert\NotBlank(message="Contenu  doit etre non vide")
+     * @Assert\Length(
+     *      min = 7,
+     *      max = 10000,
+     *      minMessage = "doit etre >=7 ",
+     *      maxMessage = "doit etre <=10000" )
      *
      * @ORM\Column(name="contenu", type="text", length=0, nullable=false)
      */
@@ -56,7 +67,12 @@ class Article
 
     /**
      * @var string|null
+     *@Assert\NotBlank(message=" Auteur doit etre non vide")
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un auteur au mini de 5 caracteres"
      *
+     *     )
      * @ORM\Column(name="auteur", type="string", length=255, options={"default"="NULL"})
      */
     private $auteur  ;
