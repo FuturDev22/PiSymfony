@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+{#<div class="row" style="display:flex;align-items: center;justify-content: center;margin-top:200px;">
+
+
+    <div class="card-body">
+        <h5 class="card-title">Transactions</h5>
+
+        <!-- Default Table -->
+        <table class="table">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>type</th>
+                <th>valeur</th>
+                <th>date</th>
+                <th>heure</th>
+                <th>recepteur</th>
+                <th>emetteur</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for transaction in t %}
+                <tr>
+                    <td>{{ transaction.id }}</td>
+                    <td>{{ transaction.type }}</td>
+                    <td>{{ transaction.valeur }}</td>
+                    <td>{{ transaction.date |date('d-m-Y') }}</td>
+                    <td>{{ transaction.heure | date('H:i')}}</td>
+                    <td>{{ transaction.recepteur }}</td>
+                    <td>{{ transaction.emetteur }}</td>
+                    <td>
+                        <a href="{{ path('updateTransaction',{'id':transaction.id})}}" >Modifier</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('deleteTransaction',{'id':transaction.id})}}" >Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tr>
+
+            </tbody>
+        </table>
+        <!-- End Default Table Example -->
+    </div>
+</div>#}
+
+    <h5 class="card-title">Datatables</h5>
+    <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+
+    <!-- Table with stripped rows -->
+    <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"><div class="dataTable-top"><div class="dataTable-dropdown"><label><select class="dataTable-selector"><option value="5">5</option><option value="10" selected="">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select> entries per page</label></div><div class="dataTable-search"><input class="dataTable-input" placeholder="Search..." type="text"></div></div><div class="dataTable-container"><table class="table datatable dataTable-table">
+                <thead>
+                <tr><th scope="col" data-sortable="" style="width: 5.61742%;"><a href="#" class="dataTable-sorter">#</a></th><th scope="col" data-sortable="" style="width: 28.0871%;"><a href="#" class="dataTable-sorter">Name</a></th><th scope="col" data-sortable="" style="width: 37.6959%;"><a href="#" class="dataTable-sorter">Position</a></th><th scope="col" data-sortable="" style="width: 9.3131%;"><a href="#" class="dataTable-sorter">Age</a></th><th scope="col" data-sortable="" style="width: 19.2175%;"><a href="#" class="dataTable-sorter">Start Date</a></th></tr>
+                </thead>
+                <tbody><tr><th scope="row">1</th><td>Brandon Jacob</td><td>Designer</td><td>28</td><td>2016-05-25</td></tr><tr><th scope="row">2</th><td>Bridie Kessler</td><td>Developer</td><td>35</td><td>2014-12-05</td></tr><tr><th scope="row">3</th><td>Ashleigh Langosh</td><td>Finance</td><td>45</td><td>2011-08-12</td></tr><tr><th scope="row">4</th><td>Angus Grady</td><td>HR</td><td>34</td><td>2012-06-11</td></tr><tr><th scope="row">5</th><td>Raheem Lehner</td><td>Dynamic Division Officer</td><td>47</td><td>2011-04-19</td></tr></tbody>
+            </table></div><div class="dataTable-bottom"><div class="dataTable-info">Showing 1 to 5 of 5 entries</div><nav class="dataTable-pagination"><ul class="dataTable-pagination-list"></ul></nav></div></div>
+    <!-- End Table with stripped rows -->
+
+
+
+
+{% endblock %}
+
