@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>KdayyesWebsite</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{asset('Front/assets/img/log.png')}}" rel="icon">
+  <link href="{{asset('Front/assets/img/log.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+  <link href="{{asset('Front/assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{asset('Front/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('Front/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('Front/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{asset('Front/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{asset('Front/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{asset('Front/assets/css/style.css')}}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.9.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  
+
+    </head>
+    <body>
+        {% block header %}
+         <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="{{asset('Front/assets/img/log.png')}}" alt="">
+        <span>Kdayes</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+         <li class="dropdown"><a href="{{ path('app_home1') }}"><span>Accueil</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#about"> Qui sommes-nous ?</a></li>
+            
+              <li><a href="#team">Equipe</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#counts">Statistiques</a></li>
+              <li><a href="#testimonials">Témoignages</a></li>
+            </ul>
+          </li>
+          
+          
+          <li><a class="nav-link scrollto" href="{{ path('Event') }}">Evénements</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Projets</a></li>
+          <li><a class="nav-link scrollto" href="#team">Blogs</a></li>
+          <li><a href="blog.html">Réclamation</a></li>
+         
+        
+          <li><a class="getstarted scrollto" href="#about">Investir</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+        
+  
+        {% endblock %}
+         {% block content %}{% endblock %}
+          {% block footer %}
+          
+           <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="{{asset('Front/assets/img/log.png')}}" alt="">
+              <span>Kdayes</span>
+            </a>
+            <p> <strong>Kdayes </strong> est l’acteur de référence du crowdfunding en Tunisie. Spécialiste de l’investissement digital, la plateforme propose aux investisseurs d’optimiser leur épargne dans des actifs tangibles à impact sous formes d’obligations, d’actions ou titres participatifs et offre aux entreprises non côtées des solutions de financement rapides, flexibles et innovantes.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Accueil</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Evènements</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Blog</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Nos Projets</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Numérique</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">But lucratif</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Immobilier</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">petites entreprises</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contact </h4>
+            <p>                                                     
+               Pôle Technologique El Ghazela, <br>
+              Ariana,Tunisie.<br>
+              <br>
+              <strong>Téléphone:</strong> +216 71 256 216<br>
+              <strong>Email:</strong> Kdayes2022@gmail.com<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Kdayes</span></strong>. All Rights Reserved
+      </div>
+    
+    </div>
+  </footer><!-- End Footer -->
+          {% endblock %}
+          <!-- Vendor JS Files -->
+  <script src="{{asset('Front/assets/vendor/purecounter/purecounter.js')}}"></script>
+  <script src="{{asset('Front/assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{asset('Front/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('Front/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{asset('Front/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('Front/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{asset('Front/assets/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+    <script src="{{asset('Front/assets/js/filters.js')}}"></script>
+        <script src="//code.jquery.com/jquery.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{asset('Front/assets/js/main.js')}}"></script>
+      {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Ajout <a href="{{ path('listCategories') }}" class="btn btn-primary"><i class="bi bi-box-arrow-left"></i></a> </h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Evénements</li>
+          <li class="breadcrumb-item active">Ajouter Catégorie</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-9">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Nouvelle Catégorie</h5>
+                  {{ form_start(formCat,{attr:{novalidate:'novalidate'}}) }}
+              <!-- General Form Elements -->
+              <form>
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Nom</label>
+                  <div class="col-sm-10">
+                        {{ form_widget(formCat.nomCategorie , {'attr': {'class': 'form-control' , 'placeholder' : 'nom'}} ) }}
+                       {{ form_errors(formCat.nomCategorie) }}
+                  </div>
+                </div>
+
+                
+                <div class="text-center">
+                {{ form_widget(formCat) }}
+                  <button type="submitType" class="btn btn-primary">Ajouter</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+               
+            
+              {{ form_end(formCat) }}
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+
+        
+    </section>
+
+  </main><!-- End #main -->
+  {% endblock %}

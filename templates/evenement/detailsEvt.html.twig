@@ -1,0 +1,81 @@
+   {% extends 'base1.html.twig' %}
+   {% block content %}
+    <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs" >
+      <div class="container" >
+
+        <ol >
+          <li><a href="{{ path('app_home1') }}">Accueil</a></li>
+          <li><a href="{{ path('Event') }}">Liste des événements</a></li>
+        </ol>
+        <h2>Détails de l'événement <strong style="color: #5776ED;">{{l.getNomEvt}}</strong> </h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-9 entries" style="justify-content: center;">
+          
+            <article class="entry">
+
+              <div class="entry-img">
+                <img src="{{asset('Front/assets/img/blog/blog-1.jpg')}}" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">{{l.getNomEvt}} <span class="badge rounded-pill " style="color:white;background-color:#4169E1;">{{ l.getCategorie.getNomCategorie }}</span> </a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{l.getResponsable}}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-calendar-week"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ l.getDateEvt|date('d-m-Y')}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{ l.getHeureEvt|date('H:m:s')}}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-people"></i> <a href="blog-single.html">{{l.getPlaces}} places</a></li>
+                </ul>
+              </div>
+              
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-pin-map-fill"></i> <a href="blog-single.html">{{l.getLieuEvt}}</a></li>
+                
+                </ul>
+              </div>
+              <div class="entry-content">
+                <p>{{l.getDescriptionEvt}}
+                </p>
+                <div class="read-more">
+                   {% if l.getPlaces == 0 %}
+                <button href="{{ path('participation',{'idEvt':l.id}) }}" disabled="disabled" >Participer</button> <a href="{{ path('aime',{'idEvt':l.id}) }}"><i class="bi bi-heart-fill"></i></a>
+                {% else %}
+                  <a href="{{ path('participation',{'idEvt':l.id}) }}">Participer</a> <a href="{{ path('aime',{'idEvt':l.id}) }}"><i class="bi bi-heart-fill"></i></a>
+               {% endif %}
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+            
+            
+
+          </div><!-- End blog entries list -->
+
+        
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+  
+{% endblock %}
+{% block javascripts %}
+
+
+{% endblock %}
