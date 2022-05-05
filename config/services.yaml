@@ -4,6 +4,13 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+<<<<<<< HEAD
+    EventImage_directory: '%kernel.project_dir%/public/Uploads/Image'
+    images_directory: '%kernel.project_dir%/public/uploads'
+    # ici vos autres variables
+    app.locales: [ en, fr ]
+=======
+>>>>>>> b3779b0642f60ccc4446ed8f728136a6c938925b
 
 services:
     # default configuration for services in *this* file

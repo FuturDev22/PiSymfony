@@ -1,0 +1,106 @@
+{% extends 'Front.html.twig' %}
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li>Blog</li>
+                </ol>
+                <h2>Blog</h2>
+
+            </div>
+            
+        </section>
+
+
+        <!-- End Breadcrumbs -->
+
+        <!-- ======= Blog Section ======= -->
+
+        <section id="blog" class="blog" class="align-center">
+            <div class="container" data-aos="fade-up">
+                <div class="row" >
+                    <ul class="navbar-nav ml-auto">
+                        {% for locale in locales %}
+                            {% if locale != app.request.locale %}
+                                <a href="{{ path('change_locale', {'locale': locale}) }}">{{ locale }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <div class="col-lg-8 entries">
+                        <article class="entry">
+                            {% for article in articles %}
+                            <div class="entry-img">
+                                 <img src="Uploads/Image/{{ article.Image }}" alt="" class="img-fluid">
+                            </div>
+                            <h2 class="entry-title">
+                                <a href="{{ path('blog_show' , {'id':article.id})}}">{{ article.Titre }}</a>
+                            </h2>
+                            <div class="entry-meta">
+                                <ul>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{{ path('blog_show' , {'id':article.id}) }}">{{ article.Auteur }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{{ path('blog_show' , {'id':article.id}) }}">{{ article.Date | date('d/m/Y') }}</a></li>
+                                    <li>
+                                        <a href="{{ path('Article_Like' , {'id':article.id})}}"><i class="fa fa-heart" style="color: #fb3958;"></i></a>
+                                        <span class="js_like">{{ article.likes | length }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="entry-content">
+                                <div class="read-more">
+                                    <a href="{{ path('blog_show' , {'id':article.id}) }}">lire</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </article><!-- End blog entry -->
+                        <div class="blog-pagination">
+                            <ul class="justify-content-center">
+                                {{ knp_pagination_render(articles) }}
+                            </ul>
+                        </div>
+                    </div>
+                        <div class="col-lg-4">
+
+                            <div class="sidebar">
+
+                                <h3 class="sidebar-title">{% trans %}Search{% endtrans %}</h3>
+                                        {{ form_start(form)}}
+                                        {{ form_row(form.q) }}
+                                        <h3 class="sidebar-title">{% trans %}category{% endtrans %}</h3>
+                                {{ form_row(form.categories) }}
+                                        <button type="submit" class ="btn btn-primary w-100">{% trans %}filter{% endtrans %}</button>
+
+                            </div>
+                            {{ form_end(form) }}
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </div><!-- End blog entries list -->
+
+
+
+                </div>
+
+
+            </div>
+        </section><!-- End Blog Section -->
+
+    </main><!-- End #main -->
+
+{% endblock %}

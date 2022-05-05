@@ -1,0 +1,62 @@
+{% extends 'Base.html.twig' %}
+
+{% block body %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Gestion des blog</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Ajouter un article </a></li>
+
+            </ol>
+        </nav>
+    </div>
+            <div class="card-body card-block">
+                {{ form_start(formArticle,{attr:{novalidate:'novalidate'}}) }}
+                {{ form_errors(formArticle) }}
+                <form>
+                    <div class="row">
+                        <div class="mb-3 col-md-5">
+                            {{ form_row(formArticle.Titre) }}
+                        </div>
+
+                        <div class="mb-3 col-md-2">
+                            {{ form_row(formArticle.Auteur) }}
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            {{ form_row(formArticle.Cat) }}
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-11">
+                            {{ form_row(formArticle.Contenu) | raw  }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center">
+
+                                <div class="mt-2">
+
+                                    {{ form_widget(formArticle.Image)}}
+                                    {{ form_errors(formArticle.Image)}} {#  <span class="btn btn-primary">Upload</--span>#}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">{% if editMode %}Enregistrer{% else %}Ajouter{% endif %}</button>
+                    {{ form_end(formArticle) }}
+                </form>
+            </div>
+        </div>
+    </div>
+    </div><!-- .animated -->
+    </div><!-- .content -->
+    </div>
+</main>
+{% endblock %}

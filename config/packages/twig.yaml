@@ -5,5 +5,11 @@ twig:
     exception_controller: null
     form_themes:
         - bootstrap_4_layout.html.twig
+<<<<<<< HEAD
+    globals:
+        locales: '%app.locales%'
+
+=======
     paths:
         '%kernel.project_dir%/vendor/knplabs/knp-paginator-bundle/templates': KnpPaginator
+>>>>>>> b3779b0642f60ccc4446ed8f728136a6c938925b
